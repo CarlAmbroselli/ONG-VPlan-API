@@ -18,7 +18,7 @@ switch ($_GET["tag"]){
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLfreita.htm");
 	break;
 }
-
+$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmontag.htm");
 if(strlen($html)){
 
 $daten = array();
@@ -28,6 +28,12 @@ $start = strpos($html, 'align="center">Vertretungsplan f&uuml;r ')+40;
 $html = substr($html, $start);
 $end = strpos($html, "</h2>");
 $datum = substr($html, 0, $end);
+
+$start = strpos($datum, ' ');
+$end = strpos($datum, '.');
+$tag = substr($datum, $start, $end-$start);
+
+if($tag >= date("j") || (date("j") > $tag && $tag-date("j") > 8)){
 
 $start = strpos($html, '<th><h2>Vertretungen</h2></th></tr><tr><td>&nbsp;<br>')+53;
 $html = substr($html, $start);
@@ -77,4 +83,5 @@ while($startk > 4 && $starts > 4){
 
 echo json_encode($daten);
 
+}
 }
