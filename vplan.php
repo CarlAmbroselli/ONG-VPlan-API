@@ -1,27 +1,25 @@
 <?php
 $today = date("w");
 
-switch ($today){
-	case 0: //Sonntag
-	break;
-	case 1: //Montag
+switch ($_GET["tag"]){
+	case "Montag": //Montag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmontag.htm");
 	break;
-	case 2: //Dienstag
+	case "Dienstag": //Dienstag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLdienst.htm");
 	break;
-	case 3: //Mittwoch
+	case "Mittwoch": //Mittwoch
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmittwo.htm");
 	break;
-	case 4: //Donnerstag
+	case "Donnerstag": //Donnerstag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLdonner.htm");
 	break;
-	case 5: //Freitag
+	case "Freitag": //Freitag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLfreita.htm");
 	break;
-	case 6: //Samstag
-	break;
 }
+
+if(strlen($html)){
 
 $daten = array();
 $count = 0;
@@ -78,3 +76,5 @@ while($startk > 4 && $starts > 4){
 }
 
 echo json_encode($daten);
+
+}
