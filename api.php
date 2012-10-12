@@ -1,6 +1,27 @@
 <?php
+$today = date("w");
 
-$html = file_get_contents("KLmontag.html");
+switch ($today){
+	case 0: //Sonntag
+	break;
+	case 1: //Montag
+	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmontag.htm");
+	break;
+	case 2: //Dienstag
+	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLdienst.htm");
+	break;
+	case 3: //Mittwoch
+	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmittwo.htm");
+	break;
+	case 4: //Donnerstag
+	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLdonner.htm");
+	break;
+	case 5: //Freitag
+	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLfreita.htm");
+	break;
+	case 6: //Samstag
+	break;
+}
 
 $daten = array();
 $count = 0;
