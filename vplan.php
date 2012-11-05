@@ -1,6 +1,6 @@
 <?php
 $output = array();
-for($i = 2; $i < 4; $i++){
+for($i = 0; $i < 2; $i++){
 $today = date("w")+$i;
 switch ($today){
 	case 1: //Montag
