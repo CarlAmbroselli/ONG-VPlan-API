@@ -1,24 +1,28 @@
 <?php
-$today = date("w");
-
-switch ($_GET["tag"]){
-	case "Montag": //Montag
+$output = array();
+for($i = 2; $i < 4; $i++){
+$today = date("w")+$i;
+switch ($today){
+	case 1: //Montag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmontag.htm");
 	break;
-	case "Dienstag": //Dienstag
+	case 2: //Dienstag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLdienst.htm");
 	break;
-	case "Mittwoch": //Mittwoch
+	case 3: //Mittwoch
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmittwo.htm");
 	break;
-	case "Donnerstag": //Donnerstag
+	case 4: //Donnerstag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLdonner.htm");
 	break;
-	case "Freitag": //Freitag
+	case 5: //Freitag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLfreita.htm");
 	break;
+	default:
+	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmontag.htm");
+	break;
 }
-$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmontag.htm");
+
 if(strlen($html)){
 
 $daten = array();
@@ -32,9 +36,51 @@ $datum = substr($html, 0, $end);
 $start = strpos($datum, ' ');
 $end = strpos($datum, '.');
 $tag = substr($datum, $start, $end-$start);
+$datum = substr($datum, $end-+1);
+$end = strpos($datum, ' ');
+$monat = substr($datum, 0, $end);
+$monatszahl = 0;
 
-if($tag >= date("j") || (date("j") > $tag && $tag-date("j") > 8)){
+switch ($monat){
+	case "Januar": 
+	$monatszahl = 1;
+	break;
+	case "Februar":
+	$monatszahl = 2;
+	break;
+	case "M&aumlrz":
+	$monatszahl = 3;
+	break;
+	case "April":
+	$monatszahl = 4;
+	break;
+	case "Mai":
+	$monatszahl = 5;
+	break;
+	case "Juni":
+	$monatszahl = 6;
+	break;
+	case "Juli":
+	$monatszahl = 7;
+	break;
+	case "August":
+	$monatszahl = 8;
+	break;
+	case "September":
+	$monatszahl = 9;
+	break;
+	case "Oktober":
+	$monatszahl = 10;
+	break;
+	case "November":
+	$monatszahl = 11;
+	break;
+	case "Dezember":
+	$monatszahl = 12;
+	break;
+}
 
+if($tag >= date("j") || $monatszahl > date("n")){
 $start = strpos($html, '<th><h2>Vertretungen</h2></th></tr><tr><td>&nbsp;<br>')+53;
 $html = substr($html, $start);
 $end = strpos($html, "<br>&nbsp;</td></tr><tr><td>");
@@ -81,7 +127,9 @@ while($startk > 4 && $starts > 4){
 	$starts = strpos($html, '<h4>')+4;
 }
 
-echo json_encode($daten);
+array_push($output, $daten);
 
 }
 }
+}
+echo json_encode($output);
