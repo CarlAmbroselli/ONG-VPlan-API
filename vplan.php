@@ -17,9 +17,11 @@ switch ($today){
 	break;
 	case 5: //Freitag
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLfreita.htm");
+	$i = 1;
 	break;
 	default:
 	$html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmontag.htm");
+	$i = 1;
 	break;
 }
 
@@ -110,6 +112,12 @@ while($startk > 4 && $starts > 4){
 		else{
 			$count3 = 0;
 			$count2++;
+			if($i == 0){$stunde = "Heute, ".$stunde;}
+			else {
+				if($today > 0 && $today < 5){$stunde = "Morgen, ".$stunde;}	
+				else 
+				{$stunde = "Montag, ".$stunde;}
+		}
 			$daten[$count]["daten"][$count2]["stunde"] = $stunde;
 		}
 		
