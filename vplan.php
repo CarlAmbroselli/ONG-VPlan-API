@@ -103,7 +103,7 @@ while($startk > 4 && $starts > 4){
 		$end = strpos($html, "</h4>");
 		$stunde = substr($html, 0, $end);
 		$html = substr($html, $end+5);
-		if($stunde == $daten[$count]["daten"][$count2]["stunde"])
+		if(strpos($stunde, "...".$daten[$count]["daten"][$count2]["stunde"]))
 		{
 			$count3++;
 		}
