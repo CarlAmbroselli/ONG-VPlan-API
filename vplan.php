@@ -94,6 +94,10 @@ while($startk > 4 && $starts > 4){
 	$html = substr($html, $startk);
 	$end = strpos($html, "</h3>");
 	$daten[$count]["klasse"] = substr($html, 0, $end);
+	$daten[$count]["klasse"] = str_replace("1. Semester", "1./2. Semester", $daten[$count]["klasse"]);
+	$daten[$count]["klasse"] = str_replace("2. Semester", "1./2. Semester", $daten[$count]["klasse"]);
+	$daten[$count]["klasse"] = str_replace("3. Semester", "3./4. Semester", $daten[$count]["klasse"]);
+	$daten[$count]["klasse"] = str_replace("4. Semester", "3./4. Semester", $daten[$count]["klasse"]);
 	
 	$starts = strpos($html, '<h4>')+4;
 	$count2 = 0;
