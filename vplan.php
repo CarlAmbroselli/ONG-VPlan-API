@@ -140,7 +140,7 @@ while($startk > 4 && $starts > 4){
 	$starts = strpos($html, '<h4>')+4;
 }
 
-array_push($output, $daten);
+array_merge($output, $daten);
 
 }
 }
