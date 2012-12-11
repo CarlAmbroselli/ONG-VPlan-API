@@ -29,7 +29,7 @@ if(strlen($html)){
 
 $daten = array();
 $count = 0;
-
+$html =  html_entity_decode($html);
 $start = strpos($html, 'align="center">Vertretungsplan f&uuml;r ')+40;
 $html = substr($html, $start);
 $end = strpos($html, "</h2>");
@@ -127,10 +127,10 @@ while($startk > 4 && $starts > 4){
 		}
 		
 		$end = strpos($html, '    --&#8250;  ');
-		$daten[$count]["daten"][$count2]["info"][$count3]["alt"] = html_entity_decode(substr($html, 0, $end));
+		$daten[$count]["daten"][$count2]["info"][$count3]["alt"] = substr($html, 0, $end);
 		$html = substr($html, $end+15);	
 		$end = strpos($html, '</li>');
-		$daten[$count]["daten"][$count2]["info"][$count3]["neu"] = html_entity_decode(substr($html, 0, $end));		
+		$daten[$count]["daten"][$count2]["info"][$count3]["neu"] = substr($html, 0, $end);		
 		$html = substr($html, $end);
 		$starts = strpos($html, '<h4>')+4;
 		$startk = strpos($html, '<h3>')+4;
