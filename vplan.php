@@ -102,13 +102,13 @@ while($startk > 4 && $starts > 4){
 		$html = substr($html, $starts);
 		$end = strpos($html, "</h4>");
 		$stunde = substr($html, 0, $end);
-		$stunde = str_replace("1. Std.", "1. Block", $stunde);
-		$stunde = str_replace("3. Std.", "2. Block", $stunde);
-		$stunde = str_replace("5. Std.", "3. Block", $stunde);
-		$stunde = str_replace("7. Std.", "4. Block", $stunde);
-		$stunde = str_replace("9. Std.", "5. Block", $stunde);
 		$html = substr($html, $end+5);
-		if(strpos($stunde, "...".$daten[$count]["daten"][$count2]["stunde"]))
+		$tstunde = str_replace("1. Std.", "1. Block", $stunde);
+		$tstunde = str_replace("3. Std.", "2. Block", $stunde);
+		$tstunde = str_replace("5. Std.", "3. Block", $stunde);
+		$tstunde = str_replace("7. Std.", "4. Block", $stunde);
+		$tstunde = str_replace("9. Std.", "5. Block", $stunde);
+		if(strpos($tstunde, "...".$daten[$count]["daten"][$count2]["stunde"]))
 		{
 			$count3++;
 		}
@@ -116,7 +116,11 @@ while($startk > 4 && $starts > 4){
 		else{
 			$count3 = 0;
 			$count2++;
-			
+			$stunde = str_replace("1. Std.", "1. Block", $stunde);
+			$stunde = str_replace("3. Std.", "2. Block", $stunde);
+			$stunde = str_replace("5. Std.", "3. Block", $stunde);
+			$stunde = str_replace("7. Std.", "4. Block", $stunde);
+			$stunde = str_replace("9. Std.", "5. Block", $stunde);
 			if($i == 0){$stunde = "Heute, ".$stunde;}
 			else {
 				if($today > 0 && $today < 5){$stunde = "Morgen, ".$stunde;}	
