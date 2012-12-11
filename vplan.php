@@ -29,7 +29,6 @@ if(strlen($html)){
 
 $daten = array();
 $count = 0;
-$html =  html_entity_decode($html);
 $start = strpos($html, 'align="center">Vertretungsplan f&uuml;r ')+40;
 $html = substr($html, $start);
 $end = strpos($html, "</h2>");
