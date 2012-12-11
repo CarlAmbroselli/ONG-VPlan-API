@@ -102,8 +102,9 @@ while($startk > 4 && $starts > 4){
 		$html = substr($html, $starts);
 		$end = strpos($html, "</h4>");
 		$stunde = substr($html, 0, $end);
+		
 		$html = substr($html, $end+5);
-		if($stunde == $daten[$count]["daten"][$count2]["stunde"])
+		if($stunde == $stundeold)
 		{
 			$count3++;
 		}
@@ -124,6 +125,7 @@ while($startk > 4 && $starts > 4){
 		}
 			$daten[$count]["daten"][$count2]["stunde"] = $stunde;
 		}
+		$stundeold = $stunde;
 		
 		$end = strpos($html, '    --&#8250;  ');
 		$daten[$count]["daten"][$count2]["info"][$count3]["alt"] = substr($html, 0, $end);
