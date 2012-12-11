@@ -112,6 +112,11 @@ while($startk > 4 && $starts > 4){
 		else{
 			$count3 = 0;
 			$count2++;
+			$stunde = str_replace("1. Std.", "1. Block", $stunde);
+			$stunde = str_replace("3. Std.", "2. Block", $stunde);
+			$stunde = str_replace("5. Std.", "3. Block", $stunde);
+			$stunde = str_replace("7. Std.", "4. Block", $stunde);
+			$stunde = str_replace("9. Std.", "5. Block", $stunde);
 			if($i == 0){$stunde = "Heute, ".$stunde;}
 			else {
 				if($today > 0 && $today < 5){$stunde = "Morgen, ".$stunde;}	
