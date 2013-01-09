@@ -85,11 +85,14 @@ if($tag >= date("j") || $monatszahl > date("n")){
 $start = strpos($html, '<th><h2>Vertretungen</h2></th></tr><tr><td>&nbsp;<br>')+53;
 $html = substr($html, $start);
 $end = strpos($html, "<br>&nbsp;</td></tr><tr><td>");
+$sonderinfos_alt = $sonderinfos;
 $sonderinfos = substr($html, 0, $end);
 
 $daten[$count]["klasse"] = "Sonderinfos";
 $tach = "Heute";
-if($i == 1) {$tach = "Morgen";}
+if($i == 1) {
+	$sonderinfos = $sonderinfos_alt."\n\nMorgen -> ".$sonderinfos;
+}
 $daten[$count]["daten"][$i]["info"][0]["alt"] = $tach;
 $daten[$count]["daten"][$i]["info"][0]["neu"] = $sonderinfos;
 $daten[$count]["daten"][$i]["stunde"] = "Sonderinfos";
