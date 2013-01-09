@@ -92,7 +92,7 @@ $tach = "Heute";
 if($i == 1) {$tach = "Morgen";}
 $daten[$count]["daten"][$i]["info"][0]["alt"] = $tach;
 $daten[$count]["daten"][$i]["info"][0]["neu"] = $sonderinfos;
-
+$count++;
 
 $startk = strpos($html, '<h3>')+4;
 $starts = strpos($html, '<h4>')+4;
