@@ -148,6 +148,7 @@ for ($i = 0; $i < 2; $i++) {
             if ($i == 1) {
                 $sonderinfos = $sonderinfos_alt . "\n\nMorgen -> " . $sonderinfos;
             }
+            $daten[$count]["klasse"] = "Sonderinfos";
             $daten[$count]["daten"][$i]["info"][0]["alt"] = $tach;
             $daten[$count]["daten"][$i]["info"][0]["neu"]   = $sonderinfos;
             $daten[$count]["daten"][$i]["stunde"]           = "Sonderinfos";
