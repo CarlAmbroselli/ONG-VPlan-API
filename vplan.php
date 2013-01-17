@@ -88,7 +88,7 @@ $end = strpos($html, "<br>&nbsp;</td></tr><tr><td>");
 $sonderinfos_alt = $sonderinfos;
 $sonderinfos = substr($html, 0, $end);
 
-$daten[$count]["klasse"] = "Sonderinfos";
+/*$daten[$count]["klasse"] = "Sonderinfos";
 $tach = "Heute";
 if($i == 1) {
 	$sonderinfos = $sonderinfos_alt."\n\nMorgen -> ".$sonderinfos;
@@ -97,7 +97,7 @@ $daten[$count]["daten"][$i]["info"][0]["alt"] = $tach;
 $daten[$count]["daten"][$i]["info"][0]["neu"] = $sonderinfos;
 $daten[$count]["daten"][$i]["stunde"] = "Sonderinfos";
 $count++;
-
+*/
 $startk = strpos($html, '<h3>')+4;
 $starts = strpos($html, '<h4>')+4;
 
