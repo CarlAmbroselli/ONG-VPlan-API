@@ -144,7 +144,8 @@ for ($i = 0; $i < 2; $i++) {
                 $starts = strpos($html, '<h4>') + 4;
             }
             
-            $tach = "Heute";
+            /*
+	        $tach = "Heute";
             if ($i == 1) {
                 $sonderinfos = $sonderinfos_alt . "\n\nMorgen -> " . $sonderinfos;
             }
@@ -152,6 +153,7 @@ for ($i = 0; $i < 2; $i++) {
             $daten[$count]["daten"][0]["info"][0]["alt"]   = $tach;
             $daten[$count]["daten"][0]["info"][0]["neu"]   = $sonderinfos;
             $daten[$count]["daten"][0]["stunde"]           = "Sonderinfos";
+            */
             
             array_push($output, $daten);
             
