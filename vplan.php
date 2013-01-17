@@ -149,9 +149,9 @@ for ($i = 0; $i < 2; $i++) {
                 $sonderinfos = $sonderinfos_alt . "\n\nMorgen -> " . $sonderinfos;
             }
             $daten[$count]["klasse"] = "Sonderinfos";
-            $daten[$count]["daten"][$i]["info"][0]["alt"] = $tach;
-            $daten[$count]["daten"][$i]["info"][0]["neu"]   = $sonderinfos;
-            $daten[$count]["daten"][$i]["stunde"]           = "Sonderinfos";
+            $daten[$count]["daten"][0]["info"][0]["alt"]   = $tach;
+            $daten[$count]["daten"][0]["info"][0]["neu"]   = $sonderinfos;
+            $daten[$count]["daten"][0]["stunde"]           = "Sonderinfos";
             
             array_push($output, $daten);
             
