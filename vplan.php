@@ -17,7 +17,6 @@ for ($i = 0; $i < 2; $i++) {
             break;
         case 5: //Freitag
             $html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLfreita.htm");
-            $i    = 1;
             break;
         default:
             $html = file_get_contents("http://www.otto-nagel-gymnasium.de/joomla158/plaene/KLmontag.htm");
